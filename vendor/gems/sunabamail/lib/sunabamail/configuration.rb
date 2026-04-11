@@ -3,16 +3,13 @@
 module Sunabamail
   class Configuration
     def initialize
-      @foo = :bar
+      @message_class_name = "SunabamailMessage"
     end
 
-    attr_reader :foo
+    attr_reader :message_class_name
 
-    def foo=(value)
-      unless value == :bar
-        raise ArgumentError, "#foo can only be set to :bar"
-      end
-      @foo = value
+    def message_class_name=(value)
+      @message_class_name = value
     end
   end
 end

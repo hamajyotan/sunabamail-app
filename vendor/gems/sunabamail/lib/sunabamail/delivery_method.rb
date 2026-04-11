@@ -3,16 +3,15 @@
 module Sunabamail
   class DeliveryMethod
     def initialize(options = {})
-      options[:storage] ||= Sunabamail.configuration.storage
-      @settings = options
+      @message_class = Sunabamail::Configuration.message_class_name.constantize
     end
 
     def deliver!(mail)
-      Sunabamail::Message.create!(encoded: mail.encoded)
+      message_class.create!(encoded: mail.encoded)
     end
 
     private
 
-    attr_reader :settings
+    attr_reader :message_class
   end
 end
