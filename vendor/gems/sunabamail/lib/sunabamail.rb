@@ -15,4 +15,7 @@ module Sunabamail
   def self.configure = yield(configuration)
 end
 
-require "sunabamail/railtie" if defined?(Rails::Railtie)
+if defined?(Rails::Railtie)
+  require "sunabamail/engine"
+  require "sunabamail/railtie"
+end
