@@ -7,7 +7,8 @@ class UserRegistrationsController < ApplicationController
     @user_registration = UserRegistration.new(user_registration_params)
 
     if @user_registration.valid?
-      redirect_to user_registration_complete_path, notice: "メールを確認しよう"
+      UserMailer.signup_requested(@user_registration.email)
+      redirect_to user_registrations_complete_path, notice: "メールを確認しよう"
     else
       render :new
     end

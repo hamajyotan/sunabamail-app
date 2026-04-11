@@ -3,9 +3,11 @@ Rails.application.routes.draw do
     resources :messages, only: %i[index show destroy]
   end
 
-  resources :user_registrations, only: %i[new create] do
+  namespace :user_registrations do
     resource :complete, only: %i[show]
   end
+  resources :user_registrations, only: %i[new create]
+
   root to: redirect("user_registrations/new")
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
