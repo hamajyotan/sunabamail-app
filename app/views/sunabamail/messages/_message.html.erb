@@ -43,14 +43,14 @@
     <% if mail.text_part.present? %>
       <h3>Text part</h3>
       <div>
-        <pre><%= mail.text_part.body %></pre>
+        <pre><%= mail.text_part.body.to_s.force_encoding(mail.charset) %></pre>
       </div>
     <% end %>
 
     <% if mail.html_part.present? %>
       <h3>Html part</h3>
       <div>
-        <iframe seamless="seamless" srcdoc="<base target='_top'><%= mail.html_part.body %>"></iframe>
+        <iframe seamless="seamless" srcdoc="<base target='_top'><%= mail.html_part.body.to_s.force_encoding(mail.charset) %>"></iframe>
       </div>
     <% end %>
   </div>

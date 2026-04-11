@@ -7,6 +7,6 @@ class UserMailer < ApplicationMailer
   def signup_requested(to)
     @greeting = "Hi"
 
-    mail to:
+    mail subject: "ほげ", to:
   end
 end
