@@ -64,3 +64,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "sunabamail", path: "vendor/gems/sunabamail"
