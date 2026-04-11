@@ -1,0 +1,2 @@
+class SunabamailMessage < ApplicationRecord
+end
