@@ -3,7 +3,7 @@
 module Sunabamail
   class DeliveryMethod
     def initialize(options = {})
-      @message_class = Sunabamail.configuration.message_class_name.constantize
+      @message_class = Sunabamail.configuration.message_class
     end
 
     def deliver!(mail)

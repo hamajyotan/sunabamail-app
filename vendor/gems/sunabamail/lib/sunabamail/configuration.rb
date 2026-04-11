@@ -11,5 +11,9 @@ module Sunabamail
     def message_class_name=(value)
       @message_class_name = value
     end
+
+    def message_class
+      message_class_name.constantize
+    end
   end
 end

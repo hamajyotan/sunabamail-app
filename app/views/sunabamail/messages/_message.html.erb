@@ -1,0 +1,57 @@
+<div id="<%= dom_id object %>">
+  <% mail = object.mail %>
+  <div>
+    <dl>
+      <dt>Date</dt>
+      <dd><%= l mail.date, format: :long %></dd>
+
+      <dt>Message ID</dt>
+      <dd><%= mail.message_id %></dd>
+
+      <dt>Subject</dt>
+      <dd><%= mail.subject %></dd>
+
+      <dt>From</dt>
+      <dd><%= mail.from.join(', ') %></dd>
+
+      <% if mail.sender.present? %>
+        <dt>Sender</dt>
+        <dd><%= mail.sender.join(', ') %></dd>
+      <% end %>
+
+      <% if mail.reply_to.present? %>
+        <dt>Reply-To</dt>
+        <dd><%= mail.reply_to.join(', ') %></dd>
+      <% end %>
+
+      <% if mail.to.present? %>
+        <dt>To</dt>
+        <dd><%= mail.to.join(', ') %></dd>
+      <% end %>
+
+      <% if mail.cc.present? %>
+        <dt>Cc</dt>
+        <dd><%= mail.cc.join(', ') %></dd>
+      <% end %>
+
+      <% if mail.bcc.present? %>
+        <dt>Bcc</dt>
+        <dd><%= mail.bcc.join(', ') %></dd>
+      <% end %>
+    </dl>
+
+    <% if mail.text_part.present? %>
+      <h3>Text part</h3>
+      <div>
+        <pre><%= mail.text_part.body %></pre>
+      </div>
+    <% end %>
+
+    <% if mail.html_part.present? %>
+      <h3>Html part</h3>
+      <div>
+        <iframe seamless="seamless" srcdoc="<base target='_top'><%= mail.html_part.body %>"></iframe>
+      </div>
+    <% end %>
+  </div>
+</div>

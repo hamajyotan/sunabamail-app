@@ -1,0 +1,2 @@
+module SunabamailHelper
+end
