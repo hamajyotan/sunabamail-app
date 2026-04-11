@@ -3,6 +3,11 @@ Rails.application.routes.draw do
     resources :messages, only: %i[index show destroy]
   end
 
+  resources :user_registrations, only: %i[new create] do
+    resource :complete, only: %i[show]
+  end
+  root to: redirect("user_registrations/new")
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

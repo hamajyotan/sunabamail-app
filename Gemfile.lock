@@ -1,5 +1,6 @@
-PATH
-  remote: vendor/gems/sunabamail
+GIT
+  remote: https://github.com/hamajyotan/sunabamail.git
+  revision: 7be68aa475ebed95fc6a1e2249b3548ad4401ac1
   specs:
     sunabamail (0.1.0)
 
