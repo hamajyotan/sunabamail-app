@@ -3,7 +3,7 @@
 <%= render "message", object: @message %>
 
 <div>
-  <%= link_to "Back to sunaba messages", sunabamail_messages_path %>
+  <%= link_to "Back to sunaba messages", messages_path %>
 
-  <%= button_to "Destroy this sunaba message", @message, method: :delete, data: { confirm: "OK?", turbo_confirm: "OK?" } %>
+  <%= button_to "Destroy this sunaba message", message_path(@message), method: :delete, data: { confirm: "OK?", turbo_confirm: "OK?" } %>
 </div>

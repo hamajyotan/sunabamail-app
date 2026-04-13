@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  namespace :sunabamail do
-    resources :messages, only: %i[index show destroy]
-  end
-
   namespace :user_registrations do
     resource :complete, only: %i[show]
   end
@@ -22,4 +18,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  if Rails.configuration.action_mailer.delivery_method == :sunabamail
+    mount Sunabamail::Engine => "/sunabamail"
+  end
 end

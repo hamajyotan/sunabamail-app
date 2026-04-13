@@ -2,5 +2,6 @@
 
 module Sunabamail
   class Engine < ::Rails::Engine
+    isolate_namespace Sunabamail
   end
 end
