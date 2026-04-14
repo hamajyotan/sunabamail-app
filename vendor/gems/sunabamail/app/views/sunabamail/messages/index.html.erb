@@ -4,6 +4,8 @@
 
 <h1>Messages</h1>
 
+<%= button_to "Delete all messages", messages_all_path, method: :delete, data: { confirm: "OK?", turbo_confirm: "OK?" } %>
+
 <div id="messages">
   <% @messages.each do |message| %>
     <% mail = message.mail %>

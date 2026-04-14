@@ -10,7 +10,7 @@ class Sunabamail::MessagesController < ApplicationController
 
   def destroy
     @message.destroy!
-    redirect_to({ action: :index }, notice: "destroyed")
+    redirect_to messages_path, notice: "destroyed"
   end
 
   private
