@@ -12,6 +12,10 @@ module Sunabamail
       def copy_initializer
         template "sunabamail.rb", "config/initializers/sunabamail.rb"
       end
+
+      def add_migrations
+        generate "migration", "CreateSunabamailMessages", "encoded:text!", "--force"
+      end
     end
   end
 end
