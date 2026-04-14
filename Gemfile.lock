@@ -2,6 +2,7 @@ PATH
   remote: vendor/gems/sunabamail
   specs:
     sunabamail (0.1.0)
+      railties (>= 7.1)
 
 GEM
   remote: https://rubygems.org/
