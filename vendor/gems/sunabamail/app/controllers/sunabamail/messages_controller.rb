@@ -1,4 +1,4 @@
-class Sunabamail::MessagesController < ApplicationController
+class Sunabamail::MessagesController < Sunabamail::ApplicationController
   before_action :set_message, only: %i[show destroy]
 
   def index
