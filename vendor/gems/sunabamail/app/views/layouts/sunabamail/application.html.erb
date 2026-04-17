@@ -15,8 +15,12 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%= stylesheet_link_tag "sunabamail/application" %>
-    <%= javascript_include_tag "sunabamail/application" %>
+    <% if Sunabamail.configuration.use_turbo %>
+    <%= javascript_include_tag "turbo", "data-turbo-track": "reload", type: "module" %>
+    <% end %>
+
+    <%= stylesheet_link_tag "sunabamail/application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "sunabamail/application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
   <body>
