@@ -2,5 +2,6 @@
 
 <%= form_with model: @user_registration do |f| %>
   <%= f.email_field :email, autofocus: true, required: true %>
+  <%= f.file_field :file %>
   <%= f.submit %>
 <% end %>

@@ -11,8 +11,8 @@
     <dl>
       <dt>Date</dt>
       <dd><%= l mail.date, format: :short %></dd>
-      <dt>Message ID</dt>
-      <dd><%= mail.message_id %></dd>
+      <dt>From</dt>
+      <dd><%= mail.from.join(', ') %></dd>
       <dt>Subject</dt>
       <dd><%= mail.subject %></dd>
     </dl>

@@ -9,6 +9,7 @@ module Sunabamail
 
     attr_reader :message_class_name
     attr_accessor :use_turbo
+    attr_accessor :use_attachments
 
     def message_class_name=(value)
       @message_class_name = value

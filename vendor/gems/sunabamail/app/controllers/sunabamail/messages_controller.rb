@@ -18,6 +18,4 @@ class Sunabamail::MessagesController < Sunabamail::ApplicationController
   def set_message
     @message = message_class.find(params.expect(:id))
   end
-
-  def message_class = Sunabamail.configuration.message_class
 end

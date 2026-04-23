@@ -53,5 +53,9 @@
         <iframe seamless="seamless" srcdoc="<base target='_top'><%= mail.html_part.body.to_s.force_encoding(mail.charset) %>"></iframe>
       </div>
     <% end %>
+
+    <% mail.attachments.each.with_index do |attachment, index| %>
+      <%= link_to attachment.filename, message_attachment_path(object, index) %>
+    <% end %>
   </div>
 </div>

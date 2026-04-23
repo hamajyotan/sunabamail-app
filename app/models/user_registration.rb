@@ -4,4 +4,6 @@ class UserRegistration
 
   attribute :email, :string
   validates :email, presence: true
+
+  attribute :file
 end
