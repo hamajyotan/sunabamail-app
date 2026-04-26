@@ -55,7 +55,7 @@
     <% end %>
 
     <% mail.attachments.each.with_index do |attachment, index| %>
-      <%= link_to attachment.filename, message_attachment_path(object, index) %>
+      <%= link_to attachment.filename, message_attachment_path(object, index), download: true %>
     <% end %>
   </div>
 </div>

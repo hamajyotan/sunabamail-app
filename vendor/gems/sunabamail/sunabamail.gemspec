@@ -5,16 +5,15 @@ require_relative "lib/sunabamail/version"
 Gem::Specification.new do |spec|
   spec.name = "sunabamail"
   spec.version = Sunabamail::VERSION
-  spec.authors = ["Takashi SAKAGUCHI"]
-  spec.email = ["TODO: Write your email address"]
+  spec.authors = ["hamajyotan"]
+  spec.email = ["hamajyotan@gmail.com"]
 
   spec.summary = "TODO: Write a short summary, because RubyGems requires one."
   spec.description = "TODO: Write a longer description or delete this line."
   spec.homepage = "https://github.com/hamajyotan/sunabamail"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.2.0"
+  spec.required_ruby_version = ">= 3.1.0"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/hamajyotan/sunabamail"
 
