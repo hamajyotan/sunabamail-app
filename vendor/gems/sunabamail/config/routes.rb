@@ -5,6 +5,10 @@ Sunabamail::Engine.routes.draw do
   resources :messages, only: %i[index show destroy] do
     scope module: :messages do
       resources :attachments, only: %i[show]
+      resource :html, only: %i[show]
+      resource :raw, only: %i[show]
+      resource :source, only: %i[show]
+      resource :text, only: %i[show]
     end
   end
 

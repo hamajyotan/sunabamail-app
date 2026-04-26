@@ -3,22 +3,19 @@
 <h1>Messages</h1>
 
 <%= button_to "Reload", messages_path, method: :get %>
-<%= button_to "Delete all", messages_all_path, method: :delete, disabled: @messages.blank?, data: { confirm: "OK?", turbo_confirm: "OK?" } %>
+<%= button_to "Delete all", messages_all_path, method: :delete, disabled: @messages.blank?, data: { turbo_confirm: "OK?" } %>
 
 <div id="messages">
   <% @messages.each do |message| %>
     <% mail = message.mail %>
-    <dl>
-      <dt>Date</dt>
-      <dd><%= l mail.date, format: :short %></dd>
-      <dt>From</dt>
-      <dd><%= mail.from.join(', ') %></dd>
-      <dt>Subject</dt>
-      <dd><%= mail.subject %></dd>
-    </dl>
-    <p>
-      <%= link_to "Show this message", message_path(message) %>
-    </p>
+    <div>
+      <p><%= mail.subject %></p>
+      <p>
+        <span>To</span><span><%= mail.to.join(', ') %></span>
+        <span><%= time_ago_in_words mail.date %></span>
+      </p>
+      <p><%= link_to "Show this message", message_path(message) %></p>
+    <div>
     <hr>
   <% end %>
 </div
