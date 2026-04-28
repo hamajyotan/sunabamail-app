@@ -65,5 +65,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-# gem "sunabamail", github: "hamajyotan/sunabamail"
-gem "sunabamail", path: "vendor/gems/sunabamail"
+group :development do
+  # gem "sunabamail", github: "hamajyotan/sunabamail"
+  gem "sunabamail", path: "vendor/gems/sunabamail"
+end
