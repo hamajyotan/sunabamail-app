@@ -1,21 +1,18 @@
 # frozen_string_literal: true
 
-require_relative "sunabamail/version"
+require "sunabamail/version"
+require "sunabamail/engine"
 
-require_relative "sunabamail/configuration"
-require_relative "sunabamail/delivery_method"
+require "zeitwerk"
+
+loader = Zeitwerk::Loader.for_gem(warn_on_extra_files: false)
+loader.ignore("#{__dir__}/sunabamail/tasks.rb")
+loader.ignore("#{__dir__}/generators")
+loader.setup
 
 module Sunabamail
-  class Error < StandardError; end
+  extend self
 
-  def self.configuration
-    @configuration ||= Sunabamail::Configuration.new
-  end
-
-  def self.configure = yield(configuration)
-end
-
-if defined?(Rails::Railtie)
-  require "sunabamail/engine"
-  require "sunabamail/railtie"
+  attr_accessor :connects_to
+  attr_accessor :use_turbo
 end

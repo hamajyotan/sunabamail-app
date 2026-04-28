@@ -1,21 +1,20 @@
 # frozen_string_literal: true
 
-require "rails/generators/base"
+class Sunabamail::InstallGenerator < Rails::Generators::Base
+  source_root File.expand_path("templates", __dir__)
 
-module Sunabamail
-  module Generators
-    class InstallGenerator < Rails::Generators::Base
-      source_root File.expand_path("../../templates", __FILE__)
+  def copy_files
+    template "db/sunabamail_schema.rb"
+  end
 
-      desc "Creates a Sunabamail initializer to your application."
+  def configure_adapter_and_database
+    pathname = Pathname(destination_root).join("config/environments/development.rb")
 
-      def copy_initializer
-        template "sunabamail.rb", "config/initializers/sunabamail.rb"
-      end
-
-      def add_migrations
-        generate "migration", "CreateSunabamailMessages", "encoded:text!", "--force"
-      end
-    end
+    gsub_file pathname, /\n\s*config\.sunabamail\.connects_to\s+=.*\n/, "\n", verbose: false
+    gsub_file pathname, /\n\s*config\.sunabamail\.use_turbo\s+=.*\n/, "\n", verbose: false
+    gsub_file pathname, /(# )?config\.action_mailer\.delivery_method\s+=.*\n/,
+      "config.action_mailer.delivery_method = :sunabamail\n" +
+      "  config.sunabamail.connects_to = { database: { writing: :sunabamail } }\n" +
+      "  config.sunabamail.use_turbo = false\n"
   end
 end

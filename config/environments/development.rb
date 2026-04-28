@@ -41,6 +41,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 
   config.action_mailer.delivery_method = :sunabamail
+  config.sunabamail.connects_to = { database: { writing: :sunabamail } }
+  config.sunabamail.use_turbo = false
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

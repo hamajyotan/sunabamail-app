@@ -2,7 +2,7 @@ class Sunabamail::MessagesController < Sunabamail::ApplicationController
   before_action :set_message, only: %i[show destroy]
 
   def index
-    @messages = message_class.all.order(id: :desc)
+    @messages = Sunabamail::Message.all.order(id: :desc)
   end
 
   def show
@@ -16,6 +16,6 @@ class Sunabamail::MessagesController < Sunabamail::ApplicationController
   private
 
   def set_message
-    @message = message_class.find(params.expect(:id))
+    @message = Sunabamail::Message.find(params.expect(:id))
   end
 end
