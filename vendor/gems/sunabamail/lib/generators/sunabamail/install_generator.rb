@@ -17,4 +17,13 @@ class Sunabamail::InstallGenerator < Rails::Generators::Base
       "  config.sunabamail.connects_to = { database: { writing: :sunabamail } }\n" +
       "  config.sunabamail.use_turbo = false\n"
   end
+
+  def add_mount_routes
+    route <<~ROUTE
+      if Rails.configuration.action_mailer.delivery_method == :sunabamail
+        mount Sunabamail::Engine => "/sunabamail"
+      end
+
+    ROUTE
+  end
 end
