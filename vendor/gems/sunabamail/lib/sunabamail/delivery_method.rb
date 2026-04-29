@@ -6,7 +6,13 @@ module Sunabamail
     end
 
     def deliver!(mail)
-      Sunabamail::Message.create!(encoded: mail.encoded)
+      sender = mail.from.one? ? mail.from.first : mail.sender
+      subject = mail.subject
+      timestamp = mail.date
+
+      message = Sunabamail::Message.new(sender:, subject:, created_at: timestamp, updated_at: timestamp)
+      message.build_message_raw(encoded: mail.encoded)
+      message.save!
     end
   end
 end
