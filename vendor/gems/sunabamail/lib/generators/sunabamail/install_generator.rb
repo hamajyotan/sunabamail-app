@@ -11,11 +11,9 @@ class Sunabamail::InstallGenerator < Rails::Generators::Base
     pathname = Pathname(destination_root).join("config/environments/development.rb")
 
     gsub_file pathname, /\n\s*config\.sunabamail\.connects_to\s+=.*\n/, "\n", verbose: false
-    gsub_file pathname, /\n\s*config\.sunabamail\.use_turbo\s+=.*\n/, "\n", verbose: false
     gsub_file pathname, /(# )?config\.action_mailer\.delivery_method\s+=.*\n/,
       "config.action_mailer.delivery_method = :sunabamail\n" +
-      "  config.sunabamail.connects_to = { database: { writing: :sunabamail } }\n" +
-      "  config.sunabamail.use_turbo = false\n"
+      "  config.sunabamail.connects_to = { database: { writing: :sunabamail } }\n"
   end
 
   def add_mount_routes

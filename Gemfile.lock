@@ -2,6 +2,8 @@ PATH
   remote: vendor/gems/sunabamail
   specs:
     sunabamail (0.1.0)
+      actionmailer (>= 7.1)
+      activerecord (>= 7.1)
       railties (>= 7.1)
 
 GEM
