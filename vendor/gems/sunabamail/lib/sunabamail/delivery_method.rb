@@ -11,7 +11,7 @@ module Sunabamail
       timestamp = mail.date
 
       message = Sunabamail::Message.new(sender:, subject:, created_at: timestamp, updated_at: timestamp)
-      message.build_message_raw(encoded: mail.encoded)
+      message.build_raw(encoded: mail.encoded)
       message.save!
     end
   end

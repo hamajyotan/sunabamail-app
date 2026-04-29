@@ -1,7 +1,12 @@
 class Sunabamail::Message < Sunabamail::Record
-  has_one :message_raw, dependent: :destroy, autosave: true
+  has_one :raw,
+    foreign_key: :sunabamail_message_id,
+    class_name: "Sunabamail::MessageRaw",
+    inverse_of: :message,
+    dependent: :destroy,
+    autosave: true
 
   def mail
-    Mail::Message.new(message_raw.encoded)
+    Mail::Message.new(raw.encoded)
   end
 end
