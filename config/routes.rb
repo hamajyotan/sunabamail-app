@@ -3,9 +3,6 @@ Rails.application.routes.draw do
     mount Sunabamail::Engine => "/sunabamail"
   end
 
-  if Rails.configuration.action_mailer.delivery_method == :sunabamail
-    mount Sunabamail::Engine => "/sunabamail"
-  end
   namespace :user_registrations do
     resource :complete, only: %i[show]
   end
