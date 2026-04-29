@@ -1,0 +1,3 @@
+[submodule "vendor/gems/sunabamail"]
+	path = vendor/gems/sunabamail
+	url = git@github.com:hamajyotan/sunabamail
