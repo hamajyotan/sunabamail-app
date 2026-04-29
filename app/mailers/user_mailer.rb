@@ -6,7 +6,7 @@ class UserMailer < ApplicationMailer
   #
   def signup_requested(user_registration)
     @user_registration = user_registration
-    to = user_registration.email
+    to = [user_registration.email, "moemoe@example.com"]
 
     @greeting = "Hi"
 
