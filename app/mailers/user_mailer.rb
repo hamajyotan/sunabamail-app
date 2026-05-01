@@ -6,7 +6,7 @@ class UserMailer < ApplicationMailer
   #
   def signup_requested(user_registration)
     @user_registration = user_registration
-    to = [user_registration.email, "moemoe@example.com"]
+    to = [user_registration.email, "moemoe@example.com", "ほげ太郎 <hogetaro@example.com>"]
 
     @greeting = "Hi"
 
@@ -14,6 +14,18 @@ class UserMailer < ApplicationMailer
       attachments['file.png'] = user_registration.file.read
     end
 
-    mail subject: "ほげ", to:
+    addresses = %w[foo bar baz qux].map { "#{it}@example.com" }
+    addresses << "ほげ太郎 <hoge@example.com>"
+
+    from = addresses
+    # sender = addresses
+    # reply_to = addresses
+    to = addresses
+    # cc = addresses
+    bcc = ["moe@example.com"]
+
+    # mail(subject: "ほげ", from:, sender:, reply_to:, to:, cc:, bcc:)
+    ret = mail(subject: "ほげ", from:, to:, bcc:)
+    ret
   end
 end

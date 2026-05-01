@@ -20,9 +20,14 @@ ActiveRecord::Schema[8.1].define(version: 1) do
   end
 
   create_table "sunabamail_messages", force: :cascade do |t|
+    t.string "bcc"
+    t.string "cc"
     t.datetime "created_at", null: false
-    t.string "sender", null: false
+    t.string "from"
+    t.string "reply_to"
+    t.string "sender"
     t.string "subject"
+    t.string "to"
     t.datetime "updated_at", null: false
   end
 
