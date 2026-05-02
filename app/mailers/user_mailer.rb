@@ -28,4 +28,14 @@ class UserMailer < ApplicationMailer
     ret = mail(subject: "ほげ", from:, to:, bcc:)
     ret
   end
+
+  def hoge
+    subject = "うぇうぇｗ(｀･ω･´)ゞほげ"
+    from = %w[foo bar baz qux quux].sample.then { "#{it}@example.com" }
+    to = %w[foo bar baz qux].sample.then { "#{it}@example.com" }
+    cc = %w[foo bar baz qux].sample.then { "#{it}@example.com" }
+    bcc = %w[foo bar baz qux].sample.then { "#{it}@example.com" }
+
+    mail subject: "うぇうぇｗ(｀･ω･´)ゞほげ", from:, to:, cc:, bcc:
+  end
 end
